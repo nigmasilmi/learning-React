@@ -71,13 +71,24 @@
     <body>
         <div id="root">
             <script type="text/babel">
-                const Mess = () => <div className="messy">This is Messy</div>
+                const ThingsToOrder = ['Books', 'T-Shirts', 'Shorts', 'Shoes'];
+
+                const Mess = ({ list }) => {
+                    return (
+                        <div className="messy" list={ThingsToOrder}>This is Messy
+                            <ul>
+                                {list.map((item, i) => <li key={i}>{item}</li>)}
+                            </ul>
+                        </div>
+                    )
+                }
                 const Order = () => <div className="ordered">So elegant</div>
+
                 class ChangeTheDom extends React.Component {
                     state = {
                         kondo: false
                     }
-
+                    list = ThingsToOrder
                     kondoIt = () => this.setState({ kondo: true })
                     dontKondoIt = () => this.setState({ kondo: false })
                     render() {
@@ -93,7 +104,7 @@
                                 <div>
                                     {
                                         this.state.kondo ?
-                                            <Mess /> : <Order />
+                                            <Mess list={ThingsToOrder} /> : <Order />
                                     }
                                 </div>
 
@@ -102,7 +113,7 @@
                     }
                 }
                 ReactDOM.render(
-                    <ChangeTheDom />,
+                    <ChangeTheDom list={ThingsToOrder} />,
                     document.getElementById("root")
 
                 );
