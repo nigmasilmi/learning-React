@@ -50,7 +50,7 @@
                 padding: 3%;
                 text-align: right;
                 background-color: green;
-                color: red;
+                color: rgb(241, 57, 57);
             }
 
             .ordered {
@@ -71,13 +71,21 @@
     <body>
         <div id="root">
             <script type="text/babel">
-                const ThingsToOrder = ['Books', 'T-Shirts', 'Shorts', 'Shoes'];
+                // const ThingsToOrder = ['Books', 'T-Shirts', 'Shorts', 'Shoes'];
+                const ThingsToOrder = [
+                    { id: 1, category: 'Books', focus: 'order by subject' },
+                    { id: 2, category: 'T-Shirts', focus: 'Categorize by ocasion' },
+                    { id: 3, category: 'Shoes', focus: 'Gather in a single place' }
+
+                ];
 
                 const Mess = ({ list }) => {
                     return (
                         <div className="messy" list={ThingsToOrder}>This is Messy
                             <ul>
-                                {list.map((item, i) => <li key={i}>{item}</li>)}
+                                {list.map(item => <li key={item.id}>{item.category} //
+                                    <span>Focus: {item.focus}</span>
+                                </li>)}
                             </ul>
                         </div>
                     )
