@@ -6,26 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="http://unpkg.com/react@16.7.0/umd/react.development.js"></script>
         <script src="http://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+        <script src="http://unpkg.com/@babel/standalone/babel.min.js"></script>
         <title>React Baby Steps - First Step</title>
+        <style>
+            /* and the attributes are welcome! */
+            /* just keep in mind that class is a reserved keyword */
+            /* use className instead */
+            .emphasis {
+                color: peru;
+            }
+        </style>
     </head>
 
     <body>
         <div id="root">
-            <script type="text/javascript">
+            <script type="text/babel">
+                // now I can assign a value to a new variable and use it inside the tags
+                let joke = 'Sherlock Holmes';
+
                 ReactDOM.render(
-                    // first we create the element
-                    React.createElement(
-                        "div",
-                        { 'style': { 'background-color': '#333' } },
+                    // hands on React JSX
+                    // first we need to ad a Babel script so, this hybrid can be transpiled
+                    // then change the type of this script to babel
+                    <h1>Hey I am a JSX h1 :-| , <span className="emphasis"> {joke} ! </span></h1>,
 
-                        React.createElement(
-                            "h2",
-                            { 'style': { 'color': 'white' } },
-                            "Hey I am a nested React Element, How cool is that!?"
 
-                        )
-                    ),
-                    // it will take the parent element as the second argument for the render function
                     document.getElementById("root")
 
                 );
