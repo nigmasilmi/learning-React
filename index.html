@@ -15,22 +15,52 @@
             .emphasis {
                 color: peru;
             }
+
+            .teen {
+                background-color: saddlebrown;
+                color: #fff;
+            }
         </style>
     </head>
 
     <body>
         <div id="root">
             <script type="text/babel">
-                // now I can assign a value to a new variable and use it inside the tags
-                let joke = 'Sherlock Holmes';
+                // Creating a component as a function
+                const BabyComp = () => <h2> Hey, I am a big baby component </h2>
+
+                const TeenComp = () => {
+                    return (
+                        <div className="teen">
+                            Now I have grown
+                        </div>
+                    )
+                };
+
+                const CompWithProp = (props) => {
+                    return (
+                        <div>
+                            <h2>Hello my name is {props.myname}</h2>
+                            <p>and I am a {props.profession}</p>
+                        </div>
+                    )
+                };
+
+                const DeconStructing = ({ deacon, structing }) => {
+                    return (
+                        <div>
+                            <h2> Hello, this is deacon: {deacon}</h2>
+                            <h3> and this is structuring: {structing}</h3>
+                        </div>
+                    )
+                };
 
                 ReactDOM.render(
-                    // hands on React JSX
-                    // first we need to ad a Babel script so, this hybrid can be transpiled
-                    // then change the type of this script to babel
-                    <h1>Hey I am a JSX h1 :-| , <span className="emphasis"> {joke} ! </span></h1>,
-
-
+                    // The component is rendered by using the name of the function as a tag
+                    // <BabyComp />,
+                    // <TeenComp />,
+                    // <CompWithProp myname='Nig' profession='Full-stack Developer' />,
+                    <DeconStructing deacon='Mecano' structing='Aspie' />,
                     document.getElementById("root")
 
                 );
