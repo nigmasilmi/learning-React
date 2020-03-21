@@ -1,0 +1,25 @@
+{
+  "name": "reactbabysteps",
+  "version": "1.0.0",
+  "description": "LinkedIn course Learning React -Exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigmasilmi/learning-React.git"
+  },
+  "keywords": [
+    "react",
+    "learning",
+    "javascript",
+    "linkedin"
+  ],
+  "author": "Nigma Silmi - Guided by Eve Porcello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nigmasilmi/learning-React/issues"
+  },
+  "homepage": "https://github.com/nigmasilmi/learning-React#readme"
+}
