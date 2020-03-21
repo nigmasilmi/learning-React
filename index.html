@@ -33,6 +33,22 @@
                 font-weight: 800;
                 padding: 2%;
             }
+
+            .motherClass {
+                background-color: rgb(219, 123, 33);
+                color: #fff;
+                font-weight: 900;
+                padding: 2%;
+            }
+
+            .sky {
+                background-color: rgb(72, 142, 233);
+                color: #000;
+                font-weight: 500;
+                border: 1px solid white;
+                padding: 1%;
+                margin: 1%;
+            }
         </style>
     </head>
 
@@ -81,13 +97,50 @@
                     )
                 };
 
+                // Component as a JS Class
+
+                class Gaia extends React.Component {
+                    render() {
+                        return (
+                            <div className="motherClass">
+                                I am the Mother:
+                                <div className="sky">
+                                    <Child childName='Sky' />
+                                </div>
+                                <Child childName='Sea' />
+                                <Child childName='Land' />
+
+                            </div>
+                        )
+
+                    }
+                }
+
+                // Intruduction to States
+
+                class NewBorn extends React.Component {
+                    state = {
+                        needsToBeChanged: true
+                    }
+                    render() {
+                        return (
+                            <div>
+                                {this.state.needsToBeChanged ? "An urgent diaper change" : "Baby smells like baby"}
+                            </div>
+                        )
+                    }
+                }
+
+
                 ReactDOM.render(
                     // The component is rendered by using the name of the function as a tag
                     // <BabyComp />,
                     // <TeenComp />,
                     // <CompWithProp myname='Nig' profession='Full-stack Developer' />,
                     // <DeconStructing deacon='Mecano' structing='Aspie' />,
-                    <Parent />,
+                    // <Parent />,
+                    // <Gaia />,
+                    < NewBorn />,
                     document.getElementById("root")
 
                 );
