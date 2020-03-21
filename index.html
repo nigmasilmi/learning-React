@@ -13,12 +13,25 @@
             /* just keep in mind that class is a reserved keyword */
             /* use className instead */
             .emphasis {
-                color: peru;
+                color: rgb(58, 35, 12);
+                font-weight: 600;
+                border: 1px solid white;
+                padding: 1%;
+                margin: 1%;
+                text-decoration: none;
+                list-style: none;
             }
 
             .teen {
                 background-color: saddlebrown;
                 color: #fff;
+            }
+
+            .parentClass {
+                background-color: yellowgreen;
+                color: Black;
+                font-weight: 800;
+                padding: 2%;
             }
         </style>
     </head>
@@ -54,13 +67,27 @@
                         </div>
                     )
                 };
+                const Child = ({ childName }) => <li className="emphasis"> This is a child: {childName} </li>;
+
+                const Parent = () => {
+                    return (
+                        <div className="parentClass">
+                            I am the Father:
+                            <Child childName='Yo' />
+                            <Child childName='Tú' />
+                            <Child childName='Ella' />
+
+                        </div>
+                    )
+                };
 
                 ReactDOM.render(
                     // The component is rendered by using the name of the function as a tag
                     // <BabyComp />,
                     // <TeenComp />,
                     // <CompWithProp myname='Nig' profession='Full-stack Developer' />,
-                    <DeconStructing deacon='Mecano' structing='Aspie' />,
+                    // <DeconStructing deacon='Mecano' structing='Aspie' />,
+                    <Parent />,
                     document.getElementById("root")
 
                 );
