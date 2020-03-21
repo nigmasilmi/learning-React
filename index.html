@@ -9,45 +9,41 @@
         <script src="http://unpkg.com/@babel/standalone/babel.min.js"></script>
         <title>React Baby Steps - First Step</title>
         <style>
-            /* and the attributes are welcome! */
-            /* just keep in mind that class is a reserved keyword */
-            /* use className instead */
-            .emphasis {
-                color: rgb(58, 35, 12);
-                font-weight: 600;
-                border: 1px solid white;
-                padding: 1%;
-                margin: 1%;
-                text-decoration: none;
-                list-style: none;
-            }
-
-            .teen {
-                background-color: saddlebrown;
-                color: #fff;
-            }
-
-            .parentClass {
-                background-color: yellowgreen;
-                color: Black;
-                font-weight: 800;
+            .whatWeWillDo {
+                clear: both;
+                text-align: center;
+                background-color: brown;
+                border: 2px solid rgb(65, 20, 20);
+                color: white;
                 padding: 2%;
-            }
-
-            .motherClass {
-                background-color: rgb(219, 123, 33);
-                color: #fff;
-                font-weight: 900;
-                padding: 2%;
-            }
-
-            .sky {
-                background-color: rgb(72, 142, 233);
-                color: #000;
-                font-weight: 500;
-                border: 1px solid white;
-                padding: 1%;
                 margin: 1%;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            .btnWrapper {
+                background-color: rgb(161, 69, 69);
+                border: 2px solid grey;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+            }
+
+            .btnWrapper>button {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                padding: 2%;
+                margin: 1%;
+                border: none;
+                background-color: coral;
+                cursor: pointer;
+                transition-property: all;
+                transition-duration: 0.7s;
+                transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            .btnWrapper>button:hover {
+                background-color: rgb(235, 84, 30);
+                color: white;
             }
         </style>
     </head>
@@ -55,92 +51,30 @@
     <body>
         <div id="root">
             <script type="text/babel">
-                // Creating a component as a function
-                const BabyComp = () => <h2> Hey, I am a big baby component </h2>
-
-                const TeenComp = () => {
-                    return (
-                        <div className="teen">
-                            Now I have grown
-                        </div>
-                    )
-                };
-
-                const CompWithProp = (props) => {
-                    return (
-                        <div>
-                            <h2>Hello my name is {props.myname}</h2>
-                            <p>and I am a {props.profession}</p>
-                        </div>
-                    )
-                };
-
-                const DeconStructing = ({ deacon, structing }) => {
-                    return (
-                        <div>
-                            <h2> Hello, this is deacon: {deacon}</h2>
-                            <h3> and this is structuring: {structing}</h3>
-                        </div>
-                    )
-                };
-                const Child = ({ childName }) => <li className="emphasis"> This is a child: {childName} </li>;
-
-                const Parent = () => {
-                    return (
-                        <div className="parentClass">
-                            I am the Father:
-                            <Child childName='Yo' />
-                            <Child childName='Tú' />
-                            <Child childName='Ella' />
-
-                        </div>
-                    )
-                };
-
-                // Component as a JS Class
-
-                class Gaia extends React.Component {
-                    render() {
-                        return (
-                            <div className="motherClass">
-                                I am the Mother:
-                                <div className="sky">
-                                    <Child childName='Sky' />
-                                </div>
-                                <Child childName='Sea' />
-                                <Child childName='Land' />
-
-                            </div>
-                        )
-
-                    }
-                }
-
-                // Intruduction to States
-
-                class NewBorn extends React.Component {
+                class ChangeTheDom extends React.Component {
                     state = {
-                        needsToBeChanged: true
+                        kondo: false
                     }
+
+                    kondoIt = () => this.setState({ kondo: true })
+                    dontKondoIt = () => this.setState({ kondo: false })
                     render() {
                         return (
                             <div>
-                                {this.state.needsToBeChanged ? "An urgent diaper change" : "Baby smells like baby"}
+                                <div className="btnWrapper">
+                                    <button onClick={this.kondoIt}> KondoIt </button>
+                                    <button onClick={this.dontKondoIt}> Don't Kondo It </button>
+                                </div>
+                                <div className="whatWeWillDo">
+                                    We will {this.state.kondo ? "Kondo this thing" : "not Kondo anything"}
+                                </div>
+
                             </div>
                         )
                     }
                 }
-
-
                 ReactDOM.render(
-                    // The component is rendered by using the name of the function as a tag
-                    // <BabyComp />,
-                    // <TeenComp />,
-                    // <CompWithProp myname='Nig' profession='Full-stack Developer' />,
-                    // <DeconStructing deacon='Mecano' structing='Aspie' />,
-                    // <Parent />,
-                    // <Gaia />,
-                    < NewBorn />,
+                    <ChangeTheDom />,
                     document.getElementById("root")
 
                 );
